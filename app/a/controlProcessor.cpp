@@ -1,10 +1,11 @@
-#include "ControlProcessor.h"
+#include "controlProcessor.h"
 #include <QDebug>
 using namespace cv;
 
 
 ControlProcessor::ControlProcessor():
     filterProcessor(new FilterProcessor())
+  , detectProcessor(new DetectProcessor())
   , frameCount(0)
 {
 
@@ -12,9 +13,12 @@ ControlProcessor::ControlProcessor():
 
 Mat ControlProcessor::process(const Mat &input){
     frameCount=frameCount+1;
+
     unprocessedFrame = input;
     processedFrame=filterProcessor->process(unprocessedFrame);
-    qDebug() << "hueLowerThreshold: " << frameCount;
+    detectProcessor->analyse(processedFrame);
+
+
     return processedFrame;
     
    }

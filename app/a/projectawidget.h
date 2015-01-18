@@ -20,9 +20,7 @@ public:
 
     // TODO: Implement this functions
     bool handleOpenCamera(int device) ;
-    void handleOpenFile(QString file) {
-        return;
-    }
+    void handleOpenFile(QString file) ;
     // END TODO
 
 

@@ -3,6 +3,8 @@
 
 #include "videoprocessor.h"
 #include "filterProcessor.h"
+#include "detectProcessor.h"
+#include "soundProcessor.h"
 using namespace cv;
 
 class ControlProcessor : public VideoProcessor
@@ -15,6 +17,9 @@ public:
     
 private:
     FilterProcessor* filterProcessor;
+    DetectProcessor* detectProcessor;
+    SoundProcessor* soundProcessor;
+
     int frameCount;
     cv::Mat unprocessedFrame;
     cv::Mat processedFrame;

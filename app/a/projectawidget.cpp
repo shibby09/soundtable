@@ -24,6 +24,9 @@ bool ProjectAWidget::handleOpenCamera(int device){
     return true;
 }
 
+void ProjectAWidget::handleOpenFile(QString file){
+    videoThread->openFile(file);
+}
 
 
 void ProjectAWidget::on_pushButton_clicked()

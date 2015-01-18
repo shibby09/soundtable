@@ -13,8 +13,10 @@ public:
     cv::Mat process(const cv::Mat&source);
     void setMedianEnable(bool enable);
     void setOpeningEnable(bool enable);
+    void reinitializeBG(cv::Mat& background);
 private:
     cv::Mat filter(cv::Mat& input);
+    cv::Mat equalization(Mat& frame);
     cv::Mat noiseRecution(cv::Mat& binaryMask);
 private:
     cv::Point center;
