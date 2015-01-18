@@ -3,6 +3,8 @@
 
 #include "abstractprojectwidget.h"
 #include "abstractprojectinfo.h"
+#include "videoengine.h"
+#include "controlProcessor.h"
 
 namespace Ui {
 class ProjectAWidget;
@@ -17,16 +19,20 @@ public:
     ~ProjectAWidget();
 
     // TODO: Implement this functions
-    bool handleOpenCamera(int device) {
-        return false;
-    }
+    bool handleOpenCamera(int device) ;
     void handleOpenFile(QString file) {
         return;
     }
     // END TODO
 
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::ProjectAWidget *ui;
+    VideoEngine *videoThread;
+    ControlProcessor* controlProcessor;
 };
 
 #endif // PROJECTAWIDGET_H
