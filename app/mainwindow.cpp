@@ -115,7 +115,7 @@ void MainWindow::openFile() {
                 this,
                 tr("Video öffnen"),
                 QDir::homePath(),
-                tr("Video Dateien (*.wmv *.mpg *mpeg *.avi *.mp4"));
+                tr("Video Dateien (*.wmv *.mpg *mpeg *.avi *.mp4 *.mov"));
     fileDialog.setFileMode(QFileDialog::ExistingFile);
     if(fileDialog.exec()) {
         QString fileName = fileDialog.selectedFiles().at(0);

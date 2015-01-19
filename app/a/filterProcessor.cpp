@@ -11,20 +11,24 @@ FilterProcessor::FilterProcessor()
     : useMedian(true)
     , useOpening(true)
     , useNoiseRecutiob(true)
+    , useEqualization(false)
     , bufferMode(true)
     , frameCount(0)
 {
-    pMOG2 = new cv::BackgroundSubtractorMOG(5000,0,0.1,0);
+    pMOG2 = new cv::BackgroundSubtractorMOG2(500,14,true);
+    pMOG2->setDouble("fTau",0.65);
 }
 
 Mat FilterProcessor::process(const Mat &input){
     Mat binaryMask;
     Mat frame;
+    //Preprocessing
+    input.convertTo(frame, -1, 0.8, 0);
+    if (useEqualization){
+        frame=equalization(frame);
+    }
     if(bufferMode){
         if (frameCount==0){
-            input.convertTo(frame, -1, 2, 0);
-
-            // perform filter
 
             binaryMask = filter(frame);
             if (useMedian){
@@ -36,23 +40,18 @@ Mat FilterProcessor::process(const Mat &input){
             }
             if(useNoiseRecutiob){
                binaryMask=noiseRecution(binaryMask);
-               //bufferFrame=binaryMask;
             }
+
             bufferFrame=binaryMask;
-            frameCount=frameCount+1;
             return binaryMask;
         }else{
-            frameCount=frameCount+1;
             if (frameCount==2){
                 frameCount=0;
              }
             return bufferFrame;
         }
     }else{
-        input.convertTo(frame, -1, 2, 0);
-
         // perform filter
-
         binaryMask = filter(frame);
 
         if (useMedian){
@@ -68,20 +67,37 @@ Mat FilterProcessor::process(const Mat &input){
            binaryMask=noiseRecution(binaryMask);
         }
 
-
-
-        frameCount=frameCount+1;
         return binaryMask;
     }
+     frameCount=frameCount+1;
    }
 Mat FilterProcessor::filter(Mat& frame){
 
     Mat fgMaskMOG2;
     Mat frametoProcess;
-    frametoProcess=equalization(frame);
+    Mat frameGray;
+    cvtColor(frame, frametoProcess, CV_BGR2GRAY);
     pMOG2->operator ()(frametoProcess,fgMaskMOG2,0);
+    fgMaskMOG2 = removeShadows(fgMaskMOG2);
     return fgMaskMOG2;
 }
+
+Mat FilterProcessor::removeShadows(Mat& frame){
+
+    Mat frameToProcess;
+    frame.copyTo(frameToProcess);
+    for(int x = 0; x < frameToProcess.cols; x++){
+            for(int y = 0; y < frameToProcess.rows; y++){
+               if (frameToProcess.at<uchar>(y,x) <= 127) {
+                   frameToProcess.at<uchar>(y,x)=0;
+               }
+            }
+    }
+
+    return frameToProcess;
+}
+
+
 void FilterProcessor::reinitializeBG(Mat& background){
     //not working so far
     Mat ignoreMask;

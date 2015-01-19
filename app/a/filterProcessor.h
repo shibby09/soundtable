@@ -18,10 +18,12 @@ private:
     cv::Mat filter(cv::Mat& input);
     cv::Mat equalization(Mat& frame);
     cv::Mat noiseRecution(cv::Mat& binaryMask);
+    cv::Mat removeShadows(Mat& frame);
 private:
     cv::Point center;
     bool useMedian;
     bool useOpening;
+    bool useEqualization;
     bool useNoiseRecutiob;
     bool bufferMode;
     cv::Mat bufferFrame;
