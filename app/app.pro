@@ -15,6 +15,10 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     a/projectafactory.cpp \
+    a/controlProcessor.cpp \
+    a/filterProcessor.cpp \
+    a/detectProcessor.cpp \
+    a/soundProcessor.cpp \
     b/projectbfactory.cpp \
     abstractprojectinfo.cpp \
     abstractprojectwidget.cpp \
@@ -24,6 +28,10 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     a/projectafactory.h \
+    a/controlProcessor.h \
+    a/filterProcessor.h \
+    a/detectProcessor.h \
+    a/soundProcessor.h \
     b/projectbfactory.h \
     abstractprojectinfo.h \
     abstractprojectwidget.h \
