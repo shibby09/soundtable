@@ -16,7 +16,7 @@ Mat ControlProcessor::process(const Mat &input){
 
     unprocessedFrame = input;
     processedFrame=filterProcessor->process(unprocessedFrame);
-    detectProcessor->analyse(processedFrame);
+    //detectProcessor->analyse(processedFrame);
 
 
     return processedFrame;
