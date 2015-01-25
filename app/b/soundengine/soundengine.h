@@ -28,10 +28,12 @@ public:
     void setMasterVolume(float volume);
     QList<SoundSource>  getSoundSources();
 
+
 private:
+    ISoundEngine* _engine = createIrrKlangDevice();
     QList<SoundSource> _soundSources;
     float _masterVolume;
-    ISoundEngine* _engine = createIrrKlangDevice();
+    ISound* _sound;
 };
 
 class SoundListener
@@ -49,7 +51,9 @@ public:
     vec3df _position = vec3df(0,0,0);
     vec3df _lookDirection = vec3df(0,0,0);
     vec3df _upVector = vec3df(0,0,1);
+private:
     ISoundEngine* _engine;
+
 };
 
 #endif // SOUNDENGINE_H

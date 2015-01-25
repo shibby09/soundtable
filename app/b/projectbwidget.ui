@@ -125,7 +125,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="bottomContainer" native="true">
+    <widget class="CustomerWidget" name="bottomContainer" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -135,12 +135,35 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>100</height>
+       <height>160</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:green</string>
+      <string notr="true"/>
      </property>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>781</width>
+        <height>120</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>779</width>
+         <height>118</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -162,6 +185,12 @@
    <class>SettingsTabWidget</class>
    <extends>QWidget</extends>
    <header>b/widgets/settingstabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CustomerWidget</class>
+   <extends>QWidget</extends>
+   <header>b/widgets/customerwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

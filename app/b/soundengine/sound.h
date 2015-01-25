@@ -8,7 +8,7 @@ using namespace irrklang;
 class Sound
 {
 public:
-    Sound(const SoundSource &source);
+    Sound();
     ~Sound();
 
     SoundSource getSoundSource() const;
@@ -27,10 +27,9 @@ public:
     void setSound(ISound* sound);
     void stopSound();
     void dropSound();
-
 private:
     ISound* _sound;
-    SoundSource _soundSorce;
+    //SoundSource _soundSorce;
     float _volume;
     vec3df _position;
     bool _looped;

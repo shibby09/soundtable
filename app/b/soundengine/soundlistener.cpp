@@ -1,10 +1,11 @@
 #include "soundengine.h"
 
-SoundListener::SoundListener(ISoundEngine* engine) :
+SoundListener::SoundListener(ISoundEngine* engine)
+ :
     _position(vec3df(0,0,0))
 
 {
-      _engine = engine;
+    _engine = engine;
 }
 
 SoundListener::~SoundListener()

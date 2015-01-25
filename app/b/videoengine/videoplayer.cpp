@@ -39,11 +39,6 @@ void VideoPlayer::setOutputVideoWidget(VideoWidget *widget)
     connect(_videoEngine, SIGNAL(sendProcessedImage(const QImage&)), widget, SLOT(setImage(const QImage&)));
 }
 
-void VideoPlayer::setVideoProcessor(VideoProcessor *processor)
-{
-    _videoEngine->setProcessor(processor);
-}
-
 VideoPlayer::State VideoPlayer::state() const
 {
     return _state;

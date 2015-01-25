@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>121</height>
+    <height>222</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -93,6 +93,20 @@
      <widget class="QSlider" name="masterVolumeSlider">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton1">
+      <property name="text">
+       <string>dostuff1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>dostuff2</string>
       </property>
      </widget>
     </item>

@@ -13,7 +13,7 @@ SoundEngine::~SoundEngine()
 
 void SoundEngine::play(Sound &sound )
 {
-    ISound* _sound = _engine->play3D(sound.getSoundSource().path().toUtf8().constData(), sound.position(), sound.isLooped(), false, true);
+    _sound = _engine->play3D("/home/florian/Musik/adip.ogg", sound.position(), sound.isLooped(), false, true);
     sound.setSound(_sound);
 
 }
@@ -43,6 +43,7 @@ void SoundEngine::load(const QStringList &fileNames)
 
 SoundListener* SoundEngine::soundListener()
 {
+
     return _listener;
 }
 

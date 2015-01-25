@@ -1,5 +1,6 @@
 #ifndef SETTINGSTABWIDGET_H
 #define SETTINGSTABWIDGET_H
+#include "../table.h"
 
 #include <QTabWidget>
 
@@ -15,8 +16,11 @@ public:
     explicit SettingsTabWidget(QWidget *parent = 0);
     ~SettingsTabWidget();
 
+
 private:
     Ui::SettingsTabWidget *ui;
+        Table table;
+
 };
 
 #endif // SETTINGSTABWIDGET_H

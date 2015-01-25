@@ -1,8 +1,8 @@
 #include "sound.h"
 
-Sound::Sound(const SoundSource &source):
+Sound::Sound():
 
-    _soundSorce(source),
+    //_soundSorce(source),
     _volume(1),
     _position(vec3df(0,0,0)),
     _looped(false),
@@ -23,7 +23,7 @@ void Sound::setSound(ISound* sound)
 
 SoundSource Sound::getSoundSource() const
 {
-    return _soundSorce;
+    //return _soundSorce;
 }
 
 float Sound::volume() const
