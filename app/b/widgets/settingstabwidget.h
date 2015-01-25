@@ -1,6 +1,5 @@
 #ifndef SETTINGSTABWIDGET_H
 #define SETTINGSTABWIDGET_H
-#include "../table.h"
 
 #include <QTabWidget>
 
@@ -19,7 +18,7 @@ public:
 
 private:
     Ui::SettingsTabWidget *ui;
-        Table table;
+
 
 };
 
