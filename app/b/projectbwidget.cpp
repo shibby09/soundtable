@@ -9,19 +9,39 @@
 ProjectBWidget::ProjectBWidget(QWidget *parent, AbstractProjectInfo *projectInfo) :
     AbstractProjectWidget(parent, projectInfo),
     ui(new Ui::ProjectBWidget),
+    cardsProcessor(new CardsProcessor),
+    processorSettings(new CardsProcessorSettings),
     videoPlayer(new VideoPlayer)
 {
     ui->setupUi(this);
 
+
+    ui->settingsWidget->addTab(processorSettings, "Prozessor");
+    processorSettings->setCardsProcessor(cardsProcessor);
+    videoPlayer->setVideoProcessor(cardsProcessor);
     setupVideoPlayerConnection();
 
+    // REMOVE - BEGIN
+    dirtyHack();
+    // REMOVE - END
 }
 
 ProjectBWidget::~ProjectBWidget()
 {
     delete videoPlayer;
+    delete processorSettings;
+    delete cardsProcessor;
     delete ui;
 }
+
+// REMOVE - BEGIN
+void ProjectBWidget::dirtyHack()
+{
+    QString testFile = "/Users/soenkelange/ownCloud/AVPRG/Testvideos/out.mpeg";
+    handleOpenFile(testFile);
+    videoPlayer->play();
+}
+// REMOVE - END
 
 void ProjectBWidget::setupVideoPlayerConnection()
 {

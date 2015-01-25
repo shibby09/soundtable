@@ -21,7 +21,6 @@ SOURCES += main.cpp\
     abstractprojectfactory.cpp \
     a/projectawidget.cpp \
     b/projectbwidget.cpp \
-    b/card.cpp \
     b/widgets/videooutputtabwidget.cpp \
     b/widgets/videoplayercontrols.cpp \
     b/widgets/settingstabwidget.cpp \
@@ -29,7 +28,10 @@ SOURCES += main.cpp\
     b/soundengine/soundsource.cpp \
     b/soundengine/sound.cpp \
     b/soundengine/soundlistener.cpp \
-    b/soundengine/soundengine.cpp
+    b/soundengine/soundengine.cpp \
+    b/videoengine/card.cpp \
+    b/videoengine/cardsprocessor.cpp \
+    b/widgets/cardsprocessorsettings.cpp
 
 HEADERS  += mainwindow.h \
     a/projectafactory.h \
@@ -39,21 +41,29 @@ HEADERS  += mainwindow.h \
     abstractprojectfactory.h \
     a/projectawidget.h \
     b/projectbwidget.h \
-    b/card.h \
     b/widgets/videooutputtabwidget.h \
     b/widgets/videoplayercontrols.h \
     b/widgets/settingstabwidget.h \
     b/videoengine/videoplayer.h \
     b/soundengine/soundsource.h \
     b/soundengine/sound.h \
+<<<<<<< HEAD
     b/soundengine/soundengine.h
+=======
+    b/soundengine/soundlistener.h \
+    b/soundengine/soundengine.h \
+    b/videoengine/card.h \
+    b/videoengine/cardsprocessor.h \
+    b/widgets/cardsprocessorsettings.h
+>>>>>>> 4f1c97ea62d26ee20eee0d3c063ecfa76d379dfd
 
 FORMS    += mainwindow.ui \
     a/projectawidget.ui \
     b/projectbwidget.ui \
     b/widgets/videooutputtabwidget.ui \
     b/widgets/videoplayercontrols.ui \
-    b/widgets/settingstabwidget.ui
+    b/widgets/settingstabwidget.ui \
+    b/widgets/cardsprocessorsettings.ui
 
 include(../libs/videoengine/videoengine.pri)
 

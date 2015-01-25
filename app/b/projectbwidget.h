@@ -4,6 +4,8 @@
 #include "abstractprojectwidget.h"
 #include "abstractprojectinfo.h"
 #include "videoengine/videoplayer.h"
+#include "videoengine/cardsprocessor.h"
+#include "widgets/cardsprocessorsettings.h"
 
 namespace Ui {
 class ProjectBWidget;
@@ -17,6 +19,7 @@ public:
     explicit ProjectBWidget(QWidget *parent = 0, AbstractProjectInfo *projectInfo = 0);
     ~ProjectBWidget();
 
+    void dirtyHack();
     void setupVideoPlayerConnection();
 
     bool handleOpenCamera(int device);
@@ -25,6 +28,8 @@ public:
 private:
     Ui::ProjectBWidget *ui;
     VideoPlayer *videoPlayer;
+    CardsProcessorSettings *processorSettings;
+    CardsProcessor *cardsProcessor;
 };
 
 #endif // PROJECTBWIDGET_H
